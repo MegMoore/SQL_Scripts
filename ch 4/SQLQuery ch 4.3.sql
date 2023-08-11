@@ -1,4 +1,6 @@
 --returns 3 columns
-SELECT VendorName, DefaultAccountNo, AccountDescription
-FROM Vendors v, GLAccounts
-order by AccountDescription, VendorName
+SELECT v.VendorName, v.DefaultAccountNo, g.AccountDescription
+FROM Vendors v
+JOIN GLAccounts g
+    ON v.DefaultAccountNo = g.accountNo
+order by g.AccountDescription, v.VendorName
