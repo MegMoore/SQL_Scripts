@@ -1,5 +1,5 @@
 SELECT VendorName,
-       COUNT(DISTINCT li.AccountNo) AS [# of Accounts] --Distint allows for more than one
+       COUNT(DISTINCT li.AccountNo) AS [# of Accounts] --Distint allows for only 1 account number once
 FROM Vendors v 
   JOIN Invoices i
     ON v.VendorID = i.VendorID
