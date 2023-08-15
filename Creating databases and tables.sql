@@ -25,7 +25,6 @@ CREATE TABLE Technologies (
     InstructionDays INT not null DEFAULT 5,
 
 )    
-*/
 
 
 CREATE TABLE Curricculum (
@@ -35,5 +34,12 @@ CREATE TABLE Curricculum (
     TechnologiesId int not null FOREIGN key REFERENCES Technologies(id)
 );
 
+INSERT students (FirstName, LastName, Phone, Address, City, State, Zipcode)
+    VALUES ('Leana', 'Thompson', '419-961-4274', '6643 State Route 314', 'Bellville', default, '43055')
 
---SELECT * FROM students;
+INSERT Curricculum (day, topic, technologiesid)
+    VALUES ( 1, 'GitHub', 3)
+*/
+
+
+--SELECT * FROM Curricculum;
