@@ -11,7 +11,7 @@ USE MegMo;
 GO
 
 CREATE TABLE Users (
-    Id INT PRIMARY KEY identity(1, 1),
+    Id INT PRIMARY KEY identity(1, 1) not null,
     UserName  VARCHAR(30) UNIQUE not null,
     Password VARCHAR(30) not null,
     FirstName VARCHAR(30) not NULL,
@@ -26,7 +26,7 @@ CREATE TABLE Users (
 GO
 
 CREATE TABLE Vendors (
-    Id INT PRIMARY KEY identity(1, 1),
+    Id INT PRIMARY KEY identity(1, 1) not null,
     Code VARCHAR(30) UNIQUE not null,
     Name VARCHAR(30) not null,
     Address VARCHAR(30) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE Vendors (
 GO
 
 CREATE TABLE Products (
-    Id INT PRIMARY KEY identity(1, 1),
+    Id INT PRIMARY KEY identity(1, 1) not null,
     PartNbr VARCHAR(30) not null,
     Name VARCHAR(30) not null,
     Price decimal(11,2) NOT NULL,
@@ -66,7 +66,7 @@ GO
 
 CREATE TABLE RequestLines (
     Id INT PRIMARY KEY identity(1, 1),
-    RequestedId int FOREIGN KEY REFERENCES requests(Id) not null,
+    RequestedId int FOREIGN KEY REFERENCES requests(Id) on delete CASCADE not null,
     ProductId INT FOREIGN KEY REFERENCES Products(Id) not null,
     Quantity INT NOT NULL CHECK (Quantity > 0)
 );
