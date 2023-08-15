@@ -39,7 +39,11 @@ INSERT students (FirstName, LastName, Phone, Address, City, State, Zipcode)
 
 INSERT Curricculum (day, topic, technologiesid)
     VALUES ( 1, 'GitHub', 3)
-*/
+
+
 
 
 --SELECT * FROM Curricculum;
+
+CREATE INDEX idx_lastname on students (LastName asc);
+*/
