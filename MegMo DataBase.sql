@@ -46,7 +46,7 @@ CREATE TABLE Products (
     Price decimal(11,2) NOT NULL,
     Unit VARCHAR(30) null,
     PhotoPath VARCHAR(255) NULL,
-    VendorId int FOREIGN KEY REFERENCES vendors not null
+    VendorId int FOREIGN KEY REFERENCES Vendors not null
 );
 
 GO
@@ -59,14 +59,14 @@ CREATE TABLE Requests (
     DeliveryMode varchar(20) not NULL,
     Status VARCHAR(10) NOT null,
     Total DECIMAL(11,2) not NULL,
-    UserId int FOREIGN KEY REFERENCES USERs not null
+    UserId int FOREIGN KEY REFERENCES Users not null
 );
 
 GO
 
 CREATE TABLE RequestLines (
     Id INT PRIMARY KEY identity(1, 1),
-    RequestedId int FOREIGN KEY REFERENCES requests(Id) not null,
+    RequestedId int FOREIGN KEY REFERENCES Requests(Id) not null,
     ProductId INT FOREIGN KEY REFERENCES Products(Id) not null,
     Quantity INT NOT NULL CHECK (Quantity > 0)
 );
